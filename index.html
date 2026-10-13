@@ -77,8 +77,25 @@
 .history-film h3{font-size:clamp(26px,3vw,37px);font-weight:500;letter-spacing:.1em;margin:16px 0}
 .history-film p{color:#c6cfde;line-height:2;font-size:15px}
 .history-player{width:100%;max-width:640px;justify-self:center}
-.history-player iframe{display:block;width:100%;height:auto;aspect-ratio:4/3;border:0;border-radius:12px;background:#000}
-.history-player .video-link{display:inline-block;margin-top:12px;font-size:13px;color:#e0c58e;text-decoration:underline;text-underline-offset:4px}
+.history-player video{display:block;width:100%;height:auto;aspect-ratio:4/3;border:0;border-radius:12px;background:#000}
+
+.guide-audio{position:sticky;top:78px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:17px 20px;margin-top:26px;border:1px solid #c7b387;border-radius:16px;background:#faf7eff5;box-shadow:0 5px 20px #10233f0d;backdrop-filter:blur(12px)}
+.guide-audio strong{display:block;font-size:16px;color:#21324a;letter-spacing:.06em}
+.guide-audio p{margin:7px 0 0;color:#65748a;font-size:13px;line-height:1.7}
+.guide-audio-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.auto-switch{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:11px 17px;border:1px solid #9dafbd;border-radius:28px;background:#fff;color:#47596e;font-size:14px;font-weight:600;white-space:nowrap}
+.auto-switch[aria-checked="true"]{background:#234f43;border-color:#234f43;color:#fff}
+.switch-track{display:inline-flex;align-items:center;width:35px;height:21px;padding:3px;border-radius:20px;background:#adb6c0}
+.switch-track:before{content:'';width:15px;height:15px;flex-shrink:0;border-radius:50%;background:#fff;transition:transform .2s}
+.auto-switch[aria-checked="true"] .switch-track{background:#8dbbad}
+.auto-switch[aria-checked="true"] .switch-track:before{transform:translateX(14px)}
+.enable-sound{min-height:46px;padding:11px 17px;border:1px solid #af915b;border-radius:28px;background:#e2cfa6;color:#19354a;font-weight:600;font-size:14px}
+.enable-sound[hidden]{display:none}
+.voicebar button{white-space:nowrap;flex-shrink:0}
+.voicebar span{min-width:0}
+.voicebar.show~.floatup{bottom:96px}
+@media(max-width:600px){.voicebar{gap:8px;padding:8px 10px;font-size:12px}.voicebar button{padding:9px 12px}.voicebar span{max-width:calc(100vw - 192px)}}
+@media(max-width:600px){.guide-audio{top:65px;padding:14px 16px;gap:12px}.guide-audio-actions{width:100%}.auto-switch{flex:1}.guide-audio p{font-size:12px}.guide-audio strong{font-size:15px}}
 .section[id],.ethos[id],.history[id]{scroll-margin-top:80px}
 @media(max-width:920px){.history-film{grid-template-columns:1fr;gap:20px}}
 @media(max-width:600px){.navlinks>.round{display:none}.navlinks .mobile-nav-btn{display:inline-flex;gap:9px;align-items:center;padding:9px 14px}.navlinks{gap:0}.mission-dialog header{padding:17px}.mission-dialog h2{font-size:26px}.mission-content{padding:22px 18px 28px}.values button{font-size:13px}.section[id],.ethos[id],.history[id]{scroll-margin-top:65px}}
@@ -86,14 +103,14 @@
 </style></head><body><a class="skip" href="#explore">跳到導覽內容</a><header class="navtop" id="nav"><a class="brand" href="#home"><span class="seal">◉</span>安東彌勒山 <span style="font-weight:400;font-size:12px;letter-spacing:0">｜數位導覽</span></a><nav class="navlinks" aria-label="主選單"><a href="#spirit">園區精神</a><a href="#explore">景點導覽</a><a href="#history">建設歷程</a><a class="round" href="#explore">開始探索 ↗</a><button class="mobile-nav-btn round" id="mobileNavToggle" aria-expanded="false" aria-controls="mobileNav">開始探索 <span aria-hidden="true">⌄</span></button></nav><nav class="mobile-menu" id="mobileNav" aria-label="手機導覽選單" hidden><a href="#spirit">園區精神</a><a href="#explore">景點導覽</a><a href="#history">建設歷程</a></nav></header>
 <main><section class="hero" id="home"><div class="hero-art"><img class="hero-img" src="assets/andong-immersive-20261012.jpg" width="1730" height="909" alt="安東彌勒山園區空拍，森林與金色光線環繞圓形母殿" fetchpriority="high"></div><div class="hero-content"><div class="overline">A N D O N G · M I L E S H A N</div><h1>安東彌勒山</h1><div class="hero-caption">沉浸式導覽</div><p class="hero-tagline"><span>探索 16 處景點</span><span class="hero-separator">・</span><span>聆聽園區故事</span></p><a class="cta" href="#explore">開啟沉浸式導覽 <span aria-hidden="true">↗</span></a></div><div class="scrollhint">向下探索<i></i></div></section>
 <section class="ethos" id="spirit"><div class="section ethosgrid"><div class="reveal"><div class="kicker">01 / THE SPIRIT</div><div class="ethosquote">老有所終，<br>壯有所用，<br><em>幼有所長。</em></div></div><div class="reveal"><h2>一座承載願景的山</h2><p class="ethosdetail">安東彌勒山宗教園區佔地約 22 公頃，以厚德大帝建設世界一貫村的願景為出發點。園區結合自然環境、建築與文化傳承，期盼成為十方善眾的心靈故鄉。</p><div class="values" aria-label="四大志業"><button type="button" data-mission="culture" aria-haspopup="dialog">文化 ↗</button><button type="button" data-mission="education" aria-haspopup="dialog">教育 ↗</button><button type="button" data-mission="charity" aria-haspopup="dialog">慈善 ↗</button><button type="button" data-mission="propagation" aria-haspopup="dialog">傳道 ↗</button></div></div></div></section>
-<section class="section" id="explore"><div class="storyhead reveal"><div><div class="kicker">02 / EXPLORE THE JOURNEY</div><h2>沿著動線，探索故事</h2><p class="sectionintro">選擇一個景點，走進它的建築細節與精神意涵。點選路線中的圓點，也能逐站前進。</p></div><input class="searchbox" id="search" type="search" placeholder="⌕ 搜尋景點、故事關鍵字" aria-label="搜尋景點"></div><div class="filters" id="filters" aria-label="區域與樓層篩選"></div><div class="timeline" id="timeline" aria-label="景點導覽動線"></div><div id="stageWrap"><div id="emptyResult" class="empty" hidden>找不到符合條件的景點，請試試其他關鍵字。</div><div class="stage" id="stage"><div class="stagephoto" id="stagePhoto"><img id="stageimg" alt="" loading="lazy"><div class="number" id="stagenum">01</div></div><div class="stagebody"><div class="kicker" id="stagefloor"></div><h3 id="stagename"></h3><div class="photoalt" id="stagesub"></div><p class="summary" id="stagesummary"></p><p class="desc" id="stagestory"></p><p class="stopnote" id="stoptimeNote" hidden></p><div class="facts" id="stagefacts"></div><div class="controls"><button class="cta dark" id="next">下一站 <span>→</span></button><button class="smallbtn" id="prev">← 上一站</button><button class="smallbtn" id="speak">♫ 聆聽解說</button><label class="voicespeed">語速 <select id="voiceRate" aria-label="語音導覽語速"><option value="0.9">舒緩</option><option value="1" selected>自然</option><option value="1.12">稍快</option></select></label><button class="smallbtn" id="mark">○ 標記完成</button></div><div class="statrow"><span id="status"></span><div class="bar"><i id="progress"></i></div><span id="progressText"></span></div></div></div></div><p class="photoalt" style="margin-top:19px">※ 景點照片取自提供的導覽資料。景點照片依原始尺寸等比例顯示，圖片區貼合照片，不放大或裁切。部分圖片為簡報內既有影像；開放區域、實際展示與導覽動線以現場為準。</p></section>
-<section class="history" id="history"><div class="section"><div class="reveal"><div class="kicker">03 / THE JOURNEY THROUGH TIME</div><h2>一段跨越歲月的建設歷程</h2><p class="sectionintro">從聖地的發心願景，走向建設、落成與文化傳承。重要里程碑依《導覽培訓手冊》整理。</p></div><div class="milestones reveal"><div class="milestone"><strong>1994</strong>金公祖師臨壇，慈示應速覓地擴建。</div><div class="milestone"><strong>2007</strong>12 月 6 日，聖地簽約。</div><div class="milestone"><strong>2009</strong>12 月 12 日，厚德紀念館落成。</div><div class="milestone"><strong>2023</strong>12 月 10 日，母殿落成啟用。</div></div><div class="history-film"><div><div class="kicker">A VOICE OF COMPASSION</div><h3>老前人尋聖地</h3><p>跟隨老前人尋訪聖地的足跡，體會園區建設所承載的心愿。</p></div><div class="history-player"><iframe id="historyvideo" title="老前人尋聖地｜安東彌勒山建設歷程" width="640" height="480" src="https://www.youtube.com/embed/4VkUc1peIh4?enablejsapi=1&amp;origin=https%3A%2F%2Fgreenmail1011.github.io&amp;playsinline=1&amp;rel=0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><a class="video-link" href="https://youtu.be/4VkUc1peIh4" target="_blank" rel="noopener noreferrer">在 YouTube 開啟影片 ↗</a></div></div></div></section><section class="finale"><div class="kicker">AN ENDING, AND A BEGINNING</div><h2>從一座山，看見一份愿</h2><p>在每一次探索之間，感受自然、建築與人文交會的力量。<br>簡而不陋、樸而不俗、幽古寧靜而開闊。<br>每一個景點，都是一段值得細細聆聽的故事。</p><a class="cta" href="#explore">重新探索 <span>↗</span></a></section></main><footer class="footer">安東彌勒山｜沉浸式互動導覽　·　內容整理自《安東彌勒山導覽培訓手冊(2024-01-31)》與《導覽解說概述(2025-05-17)》。<br>本網站為導覽展示版本，非官方即時開放資訊；語音採用 ElevenLabs Yui 女性聲線預製 MP3。<br>網站素材包含原簡報影像，對外正式公開前請確認相關影像使用授權。</footer><div class="voicebar" id="voicebar" role="status" aria-live="polite"><span id="voicetitle">語音導覽</span><button id="pausevoice">暫停</button><button id="stopvoice">結束 ×</button></div><button class="floatup" id="totop" title="回到頂端" aria-label="回到頂端">↑</button><dialog id="missionDialog" class="mission-dialog" aria-labelledby="missionTitle"><header><div><div class="kicker">四大志業</div><h2 id="missionTitle"></h2></div><button id="closeMission" class="smallbtn" aria-label="關閉志業介紹" autofocus>關閉 ×</button></header><div class="mission-content" id="missionContent"></div></dialog><script src="data.js?v=20261013"></script><script>
-const $=s=>document.querySelector(s);let floor='全部',query='',selected=0,visible=[],isPaused=false;let done=new Set();try{done=new Set(JSON.parse(localStorage.getItem('andong_done')||'[]'))}catch{};const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const floors=['全部','戶外','一樓','三樓','二樓','獨立建築'];const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function choose(i){stopVoice();selected=i;render();if(history.replaceState)history.replaceState(null,'','#'+stops[i].id)}
+<section class="section" id="explore"><div class="storyhead reveal"><div><div class="kicker">02 / EXPLORE THE JOURNEY</div><h2>沿著動線，探索故事</h2><p class="sectionintro">選擇一個景點，走進它的建築細節與精神意涵。點選路線中的圓點，也能逐站前進。</p></div><input class="searchbox" id="search" type="search" placeholder="⌕ 搜尋景點、故事關鍵字" aria-label="搜尋景點"></div><div class="guide-audio" aria-label="語音導覽設定"><div><strong>語音導覽</strong><p id="autoPlayHint" role="status" aria-live="polite">滑到景點解說區或切換景點時，自動為你朗讀。</p></div><div class="guide-audio-actions"><button type="button" class="auto-switch" id="autoPlayToggle" role="switch" aria-checked="true" aria-label="自動播放解說"><span class="switch-track" aria-hidden="true"></span><span id="autoPlayLabel">自動播放：開啟</span></button><button type="button" class="enable-sound" id="enableGuideSound" hidden>♫ 啟用聲音</button></div></div><div class="filters" id="filters" aria-label="區域與樓層篩選"></div><div class="timeline" id="timeline" aria-label="景點導覽動線"></div><div id="stageWrap"><div id="emptyResult" class="empty" hidden>找不到符合條件的景點，請試試其他關鍵字。</div><div class="stage" id="stage"><div class="stagephoto" id="stagePhoto"><img id="stageimg" alt="" loading="lazy"><div class="number" id="stagenum">01</div></div><div class="stagebody"><div class="kicker" id="stagefloor"></div><h3 id="stagename"></h3><div class="photoalt" id="stagesub"></div><p class="summary" id="stagesummary"></p><p class="desc" id="stagestory"></p><p class="stopnote" id="stoptimeNote" hidden></p><div class="facts" id="stagefacts"></div><div class="controls"><button class="cta dark" id="next">下一站 <span>→</span></button><button class="smallbtn" id="prev">← 上一站</button><button class="smallbtn" id="speak">♫ 聆聽解說</button><label class="voicespeed">語速 <select id="voiceRate" aria-label="語音導覽語速"><option value="0.9">舒緩</option><option value="1" selected>自然</option><option value="1.12">稍快</option></select></label><button class="smallbtn" id="mark">○ 標記完成</button></div><div class="statrow"><span id="status"></span><div class="bar"><i id="progress"></i></div><span id="progressText"></span></div></div></div></div><p class="photoalt" style="margin-top:19px">※ 景點照片取自提供的導覽資料。景點照片依原始尺寸等比例顯示，圖片區貼合照片，不放大或裁切。部分圖片為簡報內既有影像；開放區域、實際展示與導覽動線以現場為準。</p></section>
+<section class="history" id="history"><div class="section"><div class="reveal"><div class="kicker">03 / THE JOURNEY THROUGH TIME</div><h2>一段跨越歲月的建設歷程</h2><p class="sectionintro">從聖地的發心願景，走向建設、落成與文化傳承。重要里程碑依《導覽培訓手冊》整理。</p></div><div class="milestones reveal"><div class="milestone"><strong>1994</strong>金公祖師臨壇，慈示應速覓地擴建。</div><div class="milestone"><strong>2007</strong>12 月 6 日，聖地簽約。</div><div class="milestone"><strong>2009</strong>12 月 12 日，厚德紀念館落成。</div><div class="milestone"><strong>2023</strong>12 月 10 日，母殿落成啟用。</div></div><div class="history-film"><div><div class="kicker">A VOICE OF COMPASSION</div><h3>老前人尋聖地</h3><p>跟隨老前人尋訪聖地的足跡，體會園區建設所承載的心愿。</p></div><div class="history-player"><video id="historyvideo" controls playsinline preload="none" poster="assets/elder-journey-poster.jpg" width="1440" height="1080" aria-label="老前人尋聖地｜安東彌勒山建設歷程"><source src="video/elder-journey-20261013.mp4" type="video/mp4">您的瀏覽器不支援影片播放。</video></div></div></div></section><section class="finale"><div class="kicker">AN ENDING, AND A BEGINNING</div><h2>從一座山，看見一份愿</h2><p>在每一次探索之間，感受自然、建築與人文交會的力量。<br>簡而不陋、樸而不俗、幽古寧靜而開闊。<br>每一個景點，都是一段值得細細聆聽的故事。</p><a class="cta" href="#explore">重新探索 <span>↗</span></a></section></main><footer class="footer">安東彌勒山｜沉浸式互動導覽　·　內容整理自《安東彌勒山導覽培訓手冊(2024-01-31)》與《導覽解說概述(2025-05-17)》。<br>本網站為導覽展示版本，非官方即時開放資訊；提供溫柔親切的女性聲音導覽。<br>網站素材包含原簡報影像，對外正式公開前請確認相關影像使用授權。</footer><div class="voicebar" id="voicebar" role="status" aria-live="polite"><span id="voicetitle">語音導覽</span><button id="pausevoice">暫停</button><button id="stopvoice">結束 ×</button></div><button class="floatup" id="totop" title="回到頂端" aria-label="回到頂端">↑</button><dialog id="missionDialog" class="mission-dialog" aria-labelledby="missionTitle"><header><div><div class="kicker">四大志業</div><h2 id="missionTitle"></h2></div><button id="closeMission" class="smallbtn" aria-label="關閉志業介紹" autofocus>關閉 ×</button></header><div class="mission-content" id="missionContent"></div></dialog><script src="data.js?v=20261013"></script><script>
+const $=s=>document.querySelector(s);let floor='全部',query='',selected=0,visible=[],isPaused=false;let done=new Set();try{done=new Set(JSON.parse(localStorage.getItem('andong_done')||'[]'))}catch{};const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let autoReady=false,autoEnabled=true,autoAttemptedStop=null,autoTimer=null,needsSoundGesture=false,renderedStop=null;try{autoEnabled=localStorage.getItem('andong_auto_voice')!=='off'}catch{};const floors=['全部','戶外','一樓','三樓','二樓','獨立建築'];const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function choose(i){stopVoice();selected=i;autoAttemptedStop=null;render();if(history.replaceState)history.replaceState(null,'','#'+stops[i].id);maybeAutoPlay(true)}
 function updateFilters(){visible=stops.map((s,i)=>({...s,i})).filter(s=>(floor==='全部'||s.floor===floor)&&[s.name,s.summary,s.story,s.sub,...s.facts].join(' ').includes(query));$('#filters').innerHTML=floors.map(f=>`<button class="filter ${floor===f?'active':''}" data-floor="${f}" aria-pressed="${floor===f}">${f==='全部'?'完整動線':f}</button>`).join('');document.querySelectorAll('[data-floor]').forEach(b=>b.onclick=()=>{stopVoice();floor=b.dataset.floor;updateFilters();if(visible.length&&!visible.some(s=>s.i===selected))selected=visible[0].i;render()});render()}
 function render(){
  const tl=$('#timeline');
- if(!visible.length){tl.innerHTML='';$('#stage').style.display='none';$('#emptyResult').hidden=false;return;}
+ if(!visible.length){stopVoice();tl.innerHTML='';$('#stage').style.display='none';$('#emptyResult').hidden=false;return;}
  $('#stage').style.display='';$('#emptyResult').hidden=true;
  if(!visible.some(s=>s.i===selected))selected=visible[0].i;
  const s=stops[selected];
@@ -115,38 +132,75 @@ function render(){
  $('#status').textContent='第 '+(visible.findIndex(x=>x.i===selected)+1)+' / '+visible.length+' 站';
  $('#progress').style.width=100*done.size/stops.length+'%';$('#progressText').textContent='已完成 '+done.size+' / '+stops.length+' 站';
  $('#prev').disabled=visible[0].i===selected;$('#next').disabled=visible[visible.length-1].i===selected;
+ if(renderedStop!==s.id){renderedStop=s.id;autoAttemptedStop=null;if(autoReady)scheduleAutoPlay()}
 }
 function move(delta){let j=visible.findIndex(x=>x.i===selected)+delta;if(j>=0&&j<visible.length){stopVoice();choose(visible[j].i)}}$('#next').onclick=()=>move(1);$('#prev').onclick=()=>move(-1);$('#mark').onclick=()=>{const id=stops[selected].id;done.has(id)?done.delete(id):done.add(id);try{localStorage.setItem('andong_done',JSON.stringify([...done]))}catch{}render()};$('#search').oninput=e=>{stopVoice();query=e.target.value.trim();updateFilters()};
-let historyPlayer=null;
-function pauseHistoryVideo(){if(historyPlayer&&typeof historyPlayer.pauseVideo==='function')historyPlayer.pauseVideo();}
-const historyFrame=$('#historyvideo'),historyFrameURL=new URL(historyFrame.src);
-if(historyFrameURL.searchParams.get('origin')!==location.origin){historyFrameURL.searchParams.set('origin',location.origin);historyFrame.src=historyFrameURL.href;}
-window.onYouTubeIframeAPIReady=()=>{historyPlayer=new window.YT.Player('historyvideo',{events:{onStateChange:e=>{if(e.data===1)stopVoice();}}});};
-if(window.YT&&window.YT.Player)window.onYouTubeIframeAPIReady();
-else{const youtubeScript=document.createElement('script');youtubeScript.src='https://www.youtube.com/iframe_api';youtubeScript.async=true;document.body.appendChild(youtubeScript);}
+const historyVideo=$('#historyvideo');
+function pauseHistoryVideo(){historyVideo.pause()}
+const voiceAudio=new Audio();voiceAudio.preload='none';voiceAudio.preservesPitch=true;
 let currentAudio=null,audioToken=0;
 function stopVoice(){
- audioToken++;
+ clearTimeout(autoTimer);autoTimer=null;audioToken++;
+ voiceAudio.onended=null;voiceAudio.onerror=null;
  if(currentAudio){currentAudio.pause();currentAudio.removeAttribute('src');currentAudio.load();currentAudio=null;}
  $('#voicebar').classList.remove('show');isPaused=false;$('#pausevoice').textContent='暫停';
 }
-function speak(){
- stopVoice();pauseHistoryVideo();const token=audioToken,s=stops[selected];
- const audio=new Audio('audio/yui/'+encodeURIComponent(s.id)+'.mp3'+(s.audioVersion?'?v='+encodeURIComponent(s.audioVersion):''));currentAudio=audio;
- audio.preload='metadata';audio.playbackRate=Number($('#voiceRate').value)||1;audio.preservesPitch=true;
- $('#voicetitle').textContent='Yui 導覽：'+s.name;$('#voicebar').classList.add('show');
+function syncAutoControls(){
+ $('#autoPlayToggle').setAttribute('aria-checked',String(autoEnabled));
+ $('#autoPlayLabel').textContent='自動播放：'+(autoEnabled?'開啟':'關閉');
+ $('#enableGuideSound').hidden=!(autoEnabled&&needsSoundGesture);
+ $('#autoPlayHint').textContent=!autoEnabled?'已關閉自動播放。可隨時點「聆聽解說」。':needsSoundGesture?'點一次「啟用聲音」，之後滑到解說區或切換景點就會播放。':'滑到景點解說區或切換景點時，自動為你朗讀。';
+}
+function guideIsVisible(){
+ if(document.hidden||!visible.length||$('#stage').style.display==='none')return false;
+ const r=$('.stagebody').getBoundingClientRect(),top=innerWidth<=600?65:78;
+ return Math.min(r.bottom,innerHeight)-Math.max(r.top,top)>=Math.min(100,r.height*.25);
+}
+function scheduleAutoPlay(){
+ clearTimeout(autoTimer);autoTimer=setTimeout(()=>{autoTimer=null;maybeAutoPlay()},500);
+}
+function maybeAutoPlay(userGesture=false){
+ if(!autoReady||!autoEnabled||!guideIsVisible()||autoAttemptedStop===stops[selected].id)return;
+ if((needsSoundGesture||!historyVideo.paused)&&!userGesture)return;
+ speak({automatic:true});
+}
+function speak({automatic=false}={}){
+ stopVoice();pauseHistoryVideo();const token=audioToken,s=stops[selected];autoAttemptedStop=s.id;
+ const audio=voiceAudio;currentAudio=audio;
+ audio.src='audio/yui/'+encodeURIComponent(s.id)+'.mp3'+(s.audioVersion?'?v='+encodeURIComponent(s.audioVersion):'');
+ audio.preload='metadata';audio.playbackRate=Number($('#voiceRate').value)||1;
+ $('#voicetitle').textContent='正在載入：'+s.name;$('#voicebar').classList.add('show');$('#pausevoice').textContent='播放';
  audio.onended=()=>{if(token===audioToken)stopVoice()};
  audio.onerror=()=>{if(token!==audioToken)return;$('#voicetitle').textContent='音訊載入失敗，請稍後重試';$('#pausevoice').textContent='重試';isPaused=true};
- audio.play().catch(()=>{if(token!==audioToken)return;isPaused=true;$('#pausevoice').textContent='繼續';$('#voicetitle').textContent='點選繼續播放：'+s.name});
+ return audio.play().then(()=>{if(token!==audioToken)return;needsSoundGesture=false;isPaused=false;syncAutoControls();$('#voicetitle').textContent='導覽解說：'+s.name;$('#pausevoice').textContent='暫停'}).catch(error=>{
+  if(token!==audioToken)return;isPaused=true;
+  if(error.name==='NotAllowedError'){needsSoundGesture=true;syncAutoControls();$('#voicetitle').textContent='點選繼續播放：'+s.name;$('#pausevoice').textContent='繼續';if(automatic)$('#voicebar').classList.remove('show')}
+  else{$('#voicetitle').textContent='音訊載入失敗，請稍後重試';$('#pausevoice').textContent='重試'}
+ });
 }
-$('#speak').onclick=speak;$('#stopvoice').onclick=stopVoice;
+$('#speak').onclick=()=>speak();$('#stopvoice').onclick=()=>{autoAttemptedStop=stops[selected].id;stopVoice()};
 $('#pausevoice').onclick=()=>{
  if(!currentAudio)return;
  if(currentAudio.error){speak();return;}
- if(currentAudio.paused){const token=audioToken;currentAudio.play().then(()=>{if(token!==audioToken)return;isPaused=false;$('#pausevoice').textContent='暫停';$('#voicetitle').textContent='Yui 導覽：'+stops[selected].name}).catch(()=>{if(token!==audioToken)return;$('#voicetitle').textContent='無法播放，請再次點選繼續'})}
+ if(currentAudio.paused){const token=audioToken;currentAudio.play().then(()=>{if(token!==audioToken)return;needsSoundGesture=false;syncAutoControls();isPaused=false;$('#pausevoice').textContent='暫停';$('#voicetitle').textContent='導覽解說：'+stops[selected].name}).catch(()=>{if(token!==audioToken)return;$('#voicetitle').textContent='無法播放，請再次點選繼續'})}
  else{currentAudio.pause();isPaused=true;$('#pausevoice').textContent='繼續'}
 };
 $('#voiceRate').onchange=()=>{if(currentAudio)currentAudio.playbackRate=Number($('#voiceRate').value)||1};
+$('#autoPlayToggle').onclick=()=>{
+ autoEnabled=!autoEnabled;try{localStorage.setItem('andong_auto_voice',autoEnabled?'on':'off')}catch{};
+ stopVoice();autoAttemptedStop=null;syncAutoControls();if(autoEnabled)maybeAutoPlay(true);
+};
+$('#enableGuideSound').onclick=()=>{if(autoEnabled)speak({automatic:true})};
+let guideWasVisible=false;
+const guideObserver=new IntersectionObserver(()=>{
+ if(guideIsVisible()){guideWasVisible=true;scheduleAutoPlay()}
+ else{clearTimeout(autoTimer);autoTimer=null;if(guideWasVisible&&currentAudio)stopVoice();guideWasVisible=false}
+},{rootMargin:'-80px 0px -15% 0px',threshold:[0,.1,.25,.5,.75,1]});
+guideObserver.observe($('.stagebody'));
+document.querySelectorAll('a[href="#explore"]').forEach(a=>a.addEventListener('click',()=>{if(autoEnabled)speak({automatic:true})}));
+historyVideo.addEventListener('play',()=>{autoAttemptedStop=stops[selected].id;stopVoice()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopVoice();pauseHistoryVideo()}});
+syncAutoControls();autoReady=true;
 const mobileToggle=$('#mobileNavToggle'),mobileMenu=$('#mobileNav');
 function closeMobileMenu(){mobileMenu.hidden=true;mobileToggle.setAttribute('aria-expanded','false');}
 mobileToggle.onclick=()=>{const open=mobileMenu.hidden;mobileMenu.hidden=!open;mobileToggle.setAttribute('aria-expanded',String(open));};
@@ -167,5 +221,5 @@ $('#closeMission').onclick=()=>missionDialog.close();
 missionDialog.addEventListener('close',()=>{document.body.style.overflow=missionBodyOverflow;});
 missionDialog.addEventListener('click',e=>{if(e.target!==missionDialog)return;const r=missionDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)missionDialog.close();});
 window.addEventListener('pagehide',pauseHistoryVideo);
-const obs=new IntersectionObserver(items=>items.forEach(x=>{if(x.isIntersecting){x.target.classList.add('shown');obs.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));const nav=$('#nav'),topbtn=$('#totop');window.addEventListener('scroll',()=>{nav.classList.toggle('solid',scrollY>30);topbtn.classList.toggle('show',scrollY>700)},{passive:true});topbtn.onclick=()=>scrollTo({top:0,behavior:reduced?'instant':'smooth'});window.addEventListener('pagehide',stopVoice);let hash=decodeURIComponent(location.hash.slice(1));let hi=stops.findIndex(s=>s.id===hash);if(hi>=0)selected=hi;updateFilters();if(hi>=0)$('#explore').scrollIntoView({block:'start',behavior:'instant'});
+const obs=new IntersectionObserver(items=>items.forEach(x=>{if(x.isIntersecting){x.target.classList.add('shown');obs.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));const nav=$('#nav'),topbtn=$('#totop');window.addEventListener('scroll',()=>{nav.classList.toggle('solid',scrollY>30);topbtn.classList.toggle('show',scrollY>700)},{passive:true});topbtn.onclick=()=>scrollTo({top:0,behavior:reduced?'instant':'smooth'});window.addEventListener('pagehide',stopVoice);let hash=decodeURIComponent(location.hash.slice(1));let hi=stops.findIndex(s=>s.id===hash);if(hi>=0)selected=hi;updateFilters();scheduleAutoPlay();if(hi>=0)$('#explore').scrollIntoView({block:'start',behavior:'instant'});
 </script></body></html>
